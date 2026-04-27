@@ -25,7 +25,8 @@ public class DurabilityPlugin extends JavaPlugin implements Listener {
         ItemMeta meta = item.getItemMeta();
         if (meta == null) return;
 
-        if (!item.getType().getMaxDurability().equals(0)) {
+        // La correction de l'erreur est sur la ligne ci-dessous ( != 0 )
+        if (item.getType().getMaxDurability() != 0) {
             int max = item.getType().getMaxDurability();
             int used = item.getDurability();
             int current = max - used;
